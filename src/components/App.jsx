@@ -1,5 +1,20 @@
-export const App = () => {
-  return (
+import React, { Component } from 'react';
+// import { nanoid } from 'nanoid';
+import Section from 'components/Section';
+import ContactForm from 'components/ContactForm';
+
+
+export class App extends Component {
+  state = {
+    contacts: [],
+    name: ''
+  };
+
+  // nameId = nanoid();
+
+
+render () {
+return (
     <div
       style={{
         height: '100vh',
@@ -10,7 +25,11 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework 2
+  <Section title="Phonebook:">
+  <ContactForm/>
+  </Section>
+      
     </div>
   );
+}
 };
