@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types';
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, onClick }) => {
     return (
         <ul>{contacts.map(contact => (
         <li key={contact.id}>
@@ -10,6 +10,7 @@ const ContactList = ({ contacts }) => {
             <span>
             {contact.number} 
             </span>
+            <button type="button" onClick={() => onClick(contact.id)}>Delete</button>
         </li>
             ))}
         </ul>

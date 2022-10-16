@@ -5,7 +5,6 @@ import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
 import SearchField from 'components/SearchField';
 
-
 export class App extends Component {
   state = {
     contacts: [
@@ -32,7 +31,9 @@ handleFilter = event => {
   this.setState({ [event.target.name]: event.target.value.toLowerCase() });
 }; 
 
-
+onDelete = id => {
+    this.setState({ contacts: this.state.contacts.filter(contact => contact.id !== id) });
+  };
 
 render () {
   const filteredName = this.onFilteredNames();
@@ -52,9 +53,8 @@ return (
   </Section>
   <Section title="Contacts:">
   <SearchField onChange={this.handleFilter} />
-  <ContactList contacts={filteredName}/>
+  <ContactList contacts={filteredName} onClick={this.onDelete}/>
   </Section>
-      
     </div>
   );
 }
