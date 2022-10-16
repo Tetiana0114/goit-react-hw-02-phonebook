@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import Section from 'components/Section';
 import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
+import SearchField from 'components/SearchField';
 
 
 export class App extends Component {
@@ -23,10 +24,14 @@ onFormSubmit = ({ name, number }) => {
     });
 };
 
-
 onFilteredNames = () => {
     return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
   };
+
+handleFilter = event => {
+  this.setState({ [event.target.name]: event.target.value.toLowerCase() });
+}; 
+
 
 
 render () {
@@ -46,6 +51,7 @@ return (
   <ContactForm onSubmit={this.onFormSubmit}/>
   </Section>
   <Section title="Contacts:">
+  <SearchField onChange={this.handleFilter} />
   <ContactList contacts={filteredName}/>
   </Section>
       
