@@ -42,9 +42,8 @@ return (
       style={{
         // height: '100vh',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 28,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
         color: '#010101'
       }}
     >

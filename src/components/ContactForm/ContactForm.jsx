@@ -1,5 +1,7 @@
 import { Component } from 'react';
-// import css from './ContactForm.module.css'
+import css from './ContactForm.module.css'
+import { BsPhoneFill } from "react-icons/bs";
+import { FaUserPlus } from "react-icons/fa";
 
 const initialState = { name: '', number: '' };
 
@@ -21,8 +23,8 @@ render() {
 
   return (
   <form onSubmit={this.onSubmit}>
-    <label>Name:
-     <input
+    <label className={css.label}>Name:
+     <input className={css.input}
   type="text"
   name="name"
   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -32,8 +34,8 @@ render() {
   value={name}
   /> 
     </label>
-    <label>Number:
-     <input
+    <label className={css.label}>Number<BsPhoneFill size={20} className={css.icon}/>:
+     <input className={css.input}
   type="tel"
   name="number"
   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -43,7 +45,7 @@ render() {
   value={number}
 /> 
     </label>
-<button type="submit">Add contact</button>
+<button type="submit" className={css.btn}><FaUserPlus size={20} className={css.btn_icon}/>Add contact</button>
 </form>
 );
 }
