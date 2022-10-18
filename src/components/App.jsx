@@ -19,20 +19,26 @@ export class App extends Component {
 onFormSubmit = ({ name, number }) => {
     const addedName = { id: nanoid(), name: name, number: number };
     this.state.contacts.find(contact => contact.name === name) ? window.alert(`${name} is already in contacts !`) : 
-    this.setState(prevState => { return { contacts: [...prevState.contacts, addedName] };
+    this.setState(prev => { return { contacts: [...prev.contacts, addedName] };
     });
 };
 
-onFilteredNames = () => {
-    return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
-  };
+handleFilter = e => {
+  this.setState({ filter: e.target.value.toLowerCase() });
+};
 
-handleFilter = event => {
-  this.setState({ [event.target.name]: event.target.value.toLowerCase() });
-}; 
+onFilteredNames = () => {
+  const { contacts, filter } = this.state;
+  const normalizedFilter = filter.toLowerCase().trim();
+  return contacts.filter(contact => {
+    return (
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  })
+};
 
 onDelete = id => {
-    this.setState({ contacts: this.state.contacts.filter(contact => contact.id !== id) });
+    this.setState(prev => ({ contacts: prev.contacts.filter(contact => contact.id !== id) }));
   };
 
 render () {
@@ -40,7 +46,6 @@ render () {
 return (
     <div
       style={{
-        // height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',

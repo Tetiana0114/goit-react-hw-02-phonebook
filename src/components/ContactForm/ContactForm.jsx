@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './ContactForm.module.css'
 import { BsPhoneFill } from "react-icons/bs";
 import { FaUserPlus } from "react-icons/fa";
@@ -16,6 +17,9 @@ onSubmit = event => {
   event.preventDefault();
   this.props.onSubmit(this.state);
   this.setState(initialState);
+};
+static propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 render() {
