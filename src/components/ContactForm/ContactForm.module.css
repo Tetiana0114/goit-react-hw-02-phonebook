@@ -1,5 +1,5 @@
 .label {
-font-size: 24px;
+font-size: 20px;
 font-weight: 500;
 }
 .input {
@@ -13,10 +13,11 @@ border: 1px solid #bdbdbd;
 border-radius: 0.25rem;
 }
 .btn {
+font-family: inherit;
 font-size: 24px;
-font-weight: 600;
-padding-top: 8px;
-padding-bottom: 8px;
+font-weight: 700;
+padding-top: 10px;
+padding-bottom: 10px;
 padding-left: 25px;
 padding-right: 25px;    
 color:   rgb(72, 4, 57);
@@ -26,10 +27,14 @@ border-radius: 4px;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 cursor: pointer;
 }
+.btn:focus,
+.btn:hover {
+background-color: rgb(155, 204, 195);
+}
 .icon { 
-fill:  rgb(25, 127, 108)
+fill:  rgb(125, 185, 174)
 }
 .btn_icon {
-    fill:rgb(72, 4, 57);
-    margin-right: 8px;
+fill:rgb(72, 4, 57);
+margin-right: 8px;
 }
